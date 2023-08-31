@@ -6,21 +6,21 @@ import unittest
 
 import numpy as np
 
-import introsol
+import intro_sol
 import sphere
 
 class TestIntro(unittest.TestCase):
 
     def test_hello(self):
 
-        print("\ntesting helloworld.py")
+        print("\ntesting hello_world.py")
         
         f = io.StringIO()
         with contextlib.redirect_stdout(f):
-            introsol.hello_world()
+            intro_sol.hello_world()
         hello_string_sol = f.getvalue().strip()
 
-        result = subprocess.run(["python","helloworld.py"],
+        result = subprocess.run(["python","hello_world.py"],
                                 stdout=subprocess.PIPE)
         hello_string = result.stdout.decode("UTF-8").strip()
         
@@ -46,7 +46,7 @@ class TestIntro(unittest.TestCase):
         
         f = io.StringIO()
         with contextlib.redirect_stdout(f):
-            introsol.wheel()
+            intro_sol.wheel()
         wheel_string_sol = f.getvalue().strip()
 
         
@@ -77,7 +77,7 @@ class TestIntro(unittest.TestCase):
         
         f = io.StringIO()
         with contextlib.redirect_stdout(f):
-            introsol.flux()
+            intro_sol.flux()
         flux_string_sol = f.getvalue().strip()
 
         
@@ -93,7 +93,7 @@ class TestIntro(unittest.TestCase):
         print("\ntesting sphere.sphere_volume()")
 
         radius = 10*random.random()
-        sol = introsol.sphere_volume(radius)
+        sol = intro_sol.sphere_volume(radius)
         sub = sphere.sphere_volume(radius)
 
         self.assertEqual(sol, sub)
@@ -104,7 +104,7 @@ class TestIntro(unittest.TestCase):
         print("\ntesting sphere.sphere_area()")
 
         radius = 10*random.random()
-        sol = introsol.sphere_area(radius)
+        sol = intro_sol.sphere_area(radius)
         sub = sphere.sphere_area(radius)
 
         self.assertEqual(sol, sub)
@@ -115,7 +115,7 @@ class TestIntro(unittest.TestCase):
 
         f = io.StringIO()
         with contextlib.redirect_stdout(f):
-            introsol.sphere_script()
+            intro_sol.sphere_script()
         sphere_string_sol = f.getvalue().strip()
 
         
